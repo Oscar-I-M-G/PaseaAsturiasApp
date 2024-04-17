@@ -2,4 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+    // -   -    -   -   - Cosas de Daggerhilt   -   -   -   -   -
+    id("com.google.dagger.hilt.android") version "2.48" apply false
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/selectionFragment">
+    <!--    Aqui Se navega entre los Fragments  -->
+
+
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.oimg.paseaasturias.ui.selection.SelectionFragment"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection" />
+    <fragment
+        android:id="@+id/TESTFragment"
+        android:name="com.oimg.paseaasturias.ui.testfrag.TESTFragment"
+        android:label="fragment_t_e_s_t"
+        tools:layout="@layout/fragment_t_e_s_t" />
+</navigation>

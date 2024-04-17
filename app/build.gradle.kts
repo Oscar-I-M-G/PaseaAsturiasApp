@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    //  -   -   Cosas de daggerhilt -   -
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+    // -    -   -   -   -   -   -   -   -
 }
 
 android {
@@ -48,9 +52,9 @@ dependencies {
     /**
      * CONTROL DE VERSIONES
      * */
-    // version retrofit
-    val retroVersion = "2.9.0"
-
+    val retroVersion = "2.9.0"  //  Retrofit
+    val navVersion= "2.7.1"     //  Navigation
+    val dagVersion = "2.48"     //  DaggerHilt
     /**
      * Librerias Utilizadas
      * */
@@ -67,6 +71,16 @@ dependencies {
      * COROUTINES
      * */
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+    /**
+     * Navigation
+     * */
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+    /**
+     * DaggerHilt
+     * */
+    implementation("com.google.dagger:hilt-android:$dagVersion")
+    kapt("com.google.dagger:hilt-compiler:$dagVersion")
 
 
 
