@@ -33,9 +33,42 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    /**
+     * Activamos el View binding
+     * */
+    viewBinding{
+        enable = true
+    }
+
+
 }
 
 dependencies {
+    /**
+     * CONTROL DE VERSIONES
+     * */
+    // version retrofit
+    val retroVersion = "2.9.0"
+
+    /**
+     * Librerias Utilizadas
+     * */
+    /**
+     * RETROFIT
+     * */
+    implementation ("com.squareup.retrofit2:retrofit:$retroVersion")
+    implementation ("com.squareup.retrofit2:converter-gson:$retroVersion")
+    /**
+     * PICASSO
+     * */
+    implementation("com.squareup.picasso:picasso:2.71828")
+    /**
+     * COROUTINES
+     * */
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
