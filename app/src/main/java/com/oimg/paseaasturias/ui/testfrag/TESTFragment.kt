@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.oimg.paseaasturias.R
 import com.oimg.paseaasturias.databinding.FragmentSelectionBinding
 import com.oimg.paseaasturias.databinding.FragmentTESTBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TESTFragment : Fragment() {
 
 
@@ -27,7 +28,7 @@ class TESTFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTESTBinding.inflate(layoutInflater,container,false)
         return binding.root
     }

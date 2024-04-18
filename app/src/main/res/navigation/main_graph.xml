@@ -5,8 +5,6 @@
     android:id="@+id/main_graph"
     app:startDestination="@id/selectionFragment">
     <!--    Aqui Se navega entre los Fragments  -->
-
-
     <fragment
         android:id="@+id/selectionFragment"
         android:name="com.oimg.paseaasturias.ui.selection.SelectionFragment"
@@ -17,4 +15,15 @@
         android:name="com.oimg.paseaasturias.ui.testfrag.TESTFragment"
         android:label="fragment_t_e_s_t"
         tools:layout="@layout/fragment_t_e_s_t" />
+    <fragment
+        android:id="@+id/pursuitsFragment"
+        android:name="com.oimg.paseaasturias.ui.pursuits.PursuitsFragment"
+        android:label="fragment_pursuits"
+        tools:layout="@layout/fragment_pursuits" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.oimg.paseaasturias.ui.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+
 </navigation>

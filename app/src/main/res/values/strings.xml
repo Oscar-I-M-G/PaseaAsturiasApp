@@ -2,4 +2,13 @@
     <string name="app_name">PaseaAsturias</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Nombre de Categorias de Actividades   -->
+    <string name="activity_name_water">Actividades de Agua</string>
+    <string name="activity_name_mountain">Actividades de Montaña</string>
+    <string name="activity_name_adventure">Actividades de Aventura</string>
+    <string name="activity_name_sports">Actividades de Deportes</string>
+    <string name="activity_name_nature">Actividades de Observacion de Naturaleza</string>
+    <string name="activity_name_misc">Actividades Misceláneas</string>
+
 </resources>

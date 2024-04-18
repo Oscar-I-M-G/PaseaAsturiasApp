@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:id="@+id/TESTFragment"
-    android:title="Checar_TEST"
-    android:icon="@drawable/ic_map"
-    />
+    <item
+        android:id="@+id/pursuitsFragment"
+        android:icon="@drawable/ic_map"
+        android:title="Pursuits_TEST" />
+    <item
+        android:id="@+id/TESTFragment"
+        android:icon="@drawable/ic_map"
+        android:title="Checar_TEST" />
     <item
         android:id="@+id/selectionFragment"
-        android:title="Seleccion_TEST"
         android:icon="@drawable/ic_map"
-        />
+        android:title="Seleccion_TEST" />
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_map"
+        android:title="Map_TEST"/>
 </menu>

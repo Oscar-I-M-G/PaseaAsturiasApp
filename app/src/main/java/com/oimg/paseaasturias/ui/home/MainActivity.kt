@@ -20,9 +20,6 @@ import java.io.IOException
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-
-
     // test
     private val BASE_URL = "http://orion.edv.uniovi.es/~arias/json/"
     private val TAG: String = "CHECK_RESPONSE"
