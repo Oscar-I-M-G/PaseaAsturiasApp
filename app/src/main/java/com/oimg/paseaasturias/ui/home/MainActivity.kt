@@ -33,10 +33,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         //  -   Inicializamos el navigation menu de los fragments
         initializeUI()
-        // TEST
-        //makeApiCall()
-
-        // TEST
     }
 
     private fun initializeUI() {

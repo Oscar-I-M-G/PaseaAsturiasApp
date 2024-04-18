@@ -13,7 +13,7 @@ class PursuitsViewModel @Inject constructor(pursuitProvider: PursuitProvider):Vi
     //  -   -   -   -   -   -   FLOW    -   -   -   -   -   -   -   -   -   -   -
     private var _pursuit = MutableStateFlow<List<PursuitInfo>>(emptyList())
     val pursuit:StateFlow<List<PursuitInfo>> = _pursuit
-    //  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
     init {
         _pursuit.value = pursuitProvider.getPursuits()
     }

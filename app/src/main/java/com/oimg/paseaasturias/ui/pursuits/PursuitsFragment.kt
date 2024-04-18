@@ -20,19 +20,17 @@ import kotlinx.coroutines.launch
 class PursuitsFragment : Fragment() {
     //  -   -   -   -   View Model  -   -   -   -   -   -
     private val pursuitsViewModel by viewModels<PursuitsViewModel>()
+
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
     //  -   -   -   -   Adapter -   -   -   -   -   -   -
     private lateinit var adapter: PursuitsAdapter
-    //  -   -   -   -   -   -   -   -   -   -   -   -   -
 
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -
     //  -   -   -   -   -   Binding -   -   -   -   -   -
     private var _binding: FragmentPursuitsBinding? = null
     private val binding get() = _binding!!
 
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
@@ -43,13 +41,18 @@ class PursuitsFragment : Fragment() {
         initlist()
         initUIState()
     }
+
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
-    private fun initlist(){
+    //  -   -   -   -   Inicializamos Lista -   -   -   -
+    private fun initlist() {
         adapter = PursuitsAdapter()
-        binding.rvPursuits.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        binding.rvPursuits.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.rvPursuits.adapter = adapter
     }
 
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -
+    //  -   -   -   -   Inicialicion de Estado  -   -   -
     private fun initUIState() {
         // esto es una corrutina que se engancha al ciclo de vida del fragmento
         lifecycleScope.launch {
@@ -62,6 +65,8 @@ class PursuitsFragment : Fragment() {
             }
         }
     }
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -69,8 +74,6 @@ class PursuitsFragment : Fragment() {
         _binding = FragmentPursuitsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
-
 
 
 }

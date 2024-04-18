@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.oimg.paseaasturias.databinding.FragmentMapBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MapFragment : Fragment() {
+    //  -   -   -   -   View Model  -   -   -   -   -   -
+    private val mapViewModel by viewModels<MapViewModel>()
 
+    //  -   -   -   -   -   -   -   -   -   -   -   -   -
     //  -   -   -   -   -   Binding -   -   -   -   -   -
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
