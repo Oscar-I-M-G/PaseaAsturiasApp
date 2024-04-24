@@ -11,11 +11,6 @@
         android:label="fragment_selection"
         tools:layout="@layout/fragment_selection" />
     <fragment
-        android:id="@+id/TESTFragment"
-        android:name="com.oimg.paseaasturias.ui.testfrag.TESTFragment"
-        android:label="fragment_t_e_s_t"
-        tools:layout="@layout/fragment_t_e_s_t" />
-    <fragment
         android:id="@+id/pursuitsFragment"
         android:name="com.oimg.paseaasturias.ui.pursuits.PursuitsFragment"
         android:label="fragment_pursuits"

@@ -1,29 +1,17 @@
 package com.oimg.paseaasturias.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.oimg.paseaasturias.data.APIService
-import com.oimg.paseaasturias.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.ui.setupWithNavController
 import com.oimg.paseaasturias.R
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
+import com.oimg.paseaasturias.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    // test
-    private val BASE_URL = "http://orion.edv.uniovi.es/~arias/json/"
-    private val TAG: String = "CHECK_RESPONSE"
-    // test
+
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -45,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.bnv.setupWithNavController(navController)
     }
 
-    // TEST
+    /* TEST
     private fun makeApiCall() {
         val api = getRetrofit()
 
@@ -72,15 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    // TEST
+    */
 
-    private fun getRetrofit(): APIService {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(APIService::class.java)
-    }
-    // TEST
 
 }

@@ -4,10 +4,7 @@
         android:id="@+id/pursuitsFragment"
         android:icon="@drawable/ic_map"
         android:title="Pursuits_TEST" />
-    <item
-        android:id="@+id/TESTFragment"
-        android:icon="@drawable/ic_map"
-        android:title="Checar_TEST" />
+
     <item
         android:id="@+id/selectionFragment"
         android:icon="@drawable/ic_map"

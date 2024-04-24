@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:backgroundTint="@color/primary"
+    app:cardCornerRadius="16dp"
+    android:layout_margin="8dp">
+    <LinearLayout
+        android:paddingHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tool:src="@drawable/ic_mountain"/>
+        <LinearLayout
+            android:paddingHorizontal="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:text="TEST COMPANY"/>
+            <TextView
+                android:id="@+id/tvTown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tool:text="TEST TOWN"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
