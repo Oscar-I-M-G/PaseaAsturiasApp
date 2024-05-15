@@ -41,6 +41,69 @@ class SelectionDetailActivity : AppCompatActivity() {
         binding.tvDetail.text = selection.Nombre
         initializeSocialIcons()
         initializeImages()
+        initializeContactInfo()
+        initializeAdress()
+
+    }
+
+    private fun initializeAdress() {
+        val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
+        // comprobamos si la direccion no es nula o vacia
+        // si no es nula o vacia mostramos el icono de direccion y le damos su link
+        if (!selection.Direccion.isNullOrEmpty()) {
+            binding.ivAdress.visibility = View.VISIBLE
+            binding.tvAdress.text = selection.Direccion
+            binding.llAdress.setOnClickListener {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("geo:0,0?q=" + selection.Direccion)
+                )
+                startActivity(intent)
+            }
+        } else{
+            binding.llAdress.visibility = View.GONE
+        }
+    }
+
+    private fun initializeContactInfo(){
+        val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
+        // comprobamos si el telefono no es nulo o vacio
+        // si no es nulo o vacio mostramos el icono de telefono y le damos su link
+        if (!selection.Telefono.isNullOrEmpty()) {
+            binding.ivPhone.visibility = View.VISIBLE
+            binding.tvPhone.text = selection.Telefono
+            binding.llPhone.setOnClickListener {
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + selection.Telefono))
+                startActivity(intent)
+            }
+        } else{
+            binding.llPhone.visibility = View.GONE
+
+        }
+        // comprobamos si el email no es nulo o vacio
+        // si no es nulo o vacio mostramos el icono de email y le damos su link
+        if (!selection.Email.isNullOrEmpty()) {
+            binding.ivEmail.visibility = View.VISIBLE
+            binding.tvEmail.text = selection.Email
+            binding.llEmail.setOnClickListener {
+                val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + selection.Email))
+                startActivity(intent)
+            }
+        } else{
+            binding.llEmail.visibility = View.GONE
+        }
+        // comprobamos si la web no es nula o vacia
+        // si no es nula o vacia mostramos el icono de web y le damos su link
+        if (!selection.Web.isNullOrEmpty()) {
+            binding.ivWebsite.visibility = View.VISIBLE
+            binding.tvWebsite.text = selection.Web
+            binding.llWebsite.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Web))
+                startActivity(intent)
+            }
+        } else{
+            binding.llWebsite.visibility = View.GONE
+        }
     }
     private fun initializeSocialIcons(){
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
@@ -92,7 +155,6 @@ class SelectionDetailActivity : AppCompatActivity() {
             binding.ivYoutube.visibility = View.GONE
         }
     }
-
     private fun initializeImages() {
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
         adapter = DetailAdapter()
