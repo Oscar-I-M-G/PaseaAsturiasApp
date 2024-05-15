@@ -5,6 +5,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     // -    -   -   -   -   -   -   -   -
+    id("kotlin-parcelize")
 }
 
 android {
@@ -55,6 +56,10 @@ dependencies {
     val retroVersion = "2.9.0"  //  Retrofit
     val navVersion= "2.7.1"     //  Navigation
     val dagVersion = "2.48"     //  DaggerHilt
+    val picassoVersion = "2.71828" // Picasso
+    val coVersion = "1.3.6"     //  Coroutines
+    val OSMVersion = "6.1.11"   //  OpenStreetMap
+    val interceporVersion = "4.9.1" // Interceptor
     /**
      * Librerias Utilizadas
      * */
@@ -64,13 +69,17 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:$retroVersion")
     implementation ("com.squareup.retrofit2:converter-gson:$retroVersion")
     /**
+     * Interceptor
+     * */
+    implementation("com.squareup.okhttp3:logging-interceptor:$interceporVersion")
+    /**
      * PICASSO
      * */
-    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.squareup.picasso:picasso:$picassoVersion")
     /**
      * COROUTINES
      * */
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coVersion")
     /**
      * Navigation
      * */
@@ -81,8 +90,10 @@ dependencies {
      * */
     implementation("com.google.dagger:hilt-android:$dagVersion")
     kapt("com.google.dagger:hilt-compiler:$dagVersion")
-
-
+    /**
+     * OpenStreetMap
+     * */
+    implementation("org.osmdroid:osmdroid-android:$OSMVersion")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

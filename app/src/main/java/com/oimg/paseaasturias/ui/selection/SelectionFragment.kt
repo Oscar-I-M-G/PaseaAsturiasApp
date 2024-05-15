@@ -37,11 +37,8 @@ class SelectionFragment : Fragment() {
     }
     //  -   -   -   -   -   Inicializamos la UI -   -   -
     private fun initializeUI() {
-        //initlist()
         initUIState()
     }
-
-
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
     //  -   -   -   -   Inicializacion de Estado  -   -   -
     private fun initUIState() {
@@ -50,11 +47,8 @@ class SelectionFragment : Fragment() {
                 selectionViewModel.state.collect {
                     when(it){
                         is SelectionState.Error -> errorState()
-
                         SelectionState.Loading -> loadingState()
-
                         is SelectionState.Success -> succesState(it)
-
                     }
                 }
             }
@@ -77,7 +71,6 @@ class SelectionFragment : Fragment() {
 
     private fun errorState(){
         binding.pbSelection.isVisible = false
-
     }
 
     override fun onCreateView(

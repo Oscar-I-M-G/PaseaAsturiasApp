@@ -10,7 +10,6 @@ import javax.inject.Inject
 // Extiende a Repository de nuestr capa Domain
 class RepositoryImpl @Inject constructor(private val apiService: PaseaAsturiasAPIService) :
     Repository {
-
     //Peticion a retrofit
     override suspend fun getPreviewData(): List<SelectionModel>? {
         return try {
@@ -22,5 +21,6 @@ class RepositoryImpl @Inject constructor(private val apiService: PaseaAsturiasAP
             null
         }
     }
+
 }
 

@@ -9,7 +9,11 @@
         android:id="@+id/selectionFragment"
         android:name="com.oimg.paseaasturias.ui.selection.SelectionFragment"
         android:label="fragment_selection"
-        tools:layout="@layout/fragment_selection" />
+        tools:layout="@layout/fragment_selection" >
+        <action
+            android:id="@+id/action_selectionFragment_to_selectionDetailActivity"
+            app:destination="@id/selectionDetailActivity" />
+    </fragment>
     <fragment
         android:id="@+id/pursuitsFragment"
         android:name="com.oimg.paseaasturias.ui.pursuits.PursuitsFragment"
@@ -20,5 +24,10 @@
         android:name="com.oimg.paseaasturias.ui.map.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <activity
+        android:id="@+id/selectionDetailActivity"
+        android:name="com.oimg.paseaasturias.ui.detail.SelectionDetailActivity"
+        android:label="activity_selection_detail"
+        tools:layout="@layout/activity_selection_detail" />
 
 </navigation>

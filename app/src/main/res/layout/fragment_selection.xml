@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.selection.SelectionFragment"
 
-    android:background="@color/secondary">
+    android:background="@color/white">
 
 
 

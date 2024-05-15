@@ -33,34 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.bnv.setupWithNavController(navController)
     }
 
-    /* TEST
-    private fun makeApiCall() {
-        val api = getRetrofit()
 
-
-        val errorHandler = CoroutineExceptionHandler { _, exception ->
-            Log.e(TAG, "Coroutine failed: ${exception.localizedMessage}")
-        }
-
-        CoroutineScope(Dispatchers.IO + errorHandler).launch {
-
-            try {
-
-                val response = api.getMyIDs()
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    Log.i(TAG, "API call successful: $responseBody")
-                } else {
-                    Log.e(TAG, "API call failed: ${response.code()}")
-                }
-            } catch (e: IOException) {
-                Log.e(TAG, "Network error: ${e.localizedMessage}")
-            }
-
-        }
-
-    }
-    */
 
 
 }
