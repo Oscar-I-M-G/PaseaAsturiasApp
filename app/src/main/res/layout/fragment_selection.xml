@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.selection.SelectionFragment"
 
-    android:background="@color/white">
+    >
 
 
 
@@ -17,6 +17,7 @@
         />
 
     <ProgressBar
+
         android:id="@+id/pbSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

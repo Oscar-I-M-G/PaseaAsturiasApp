@@ -13,6 +13,8 @@ import org.osmdroid.config.Configuration
 import org.osmdroid.library.BuildConfig
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.overlay.ItemizedIconOverlay
+import org.osmdroid.views.overlay.OverlayItem
 
 @AndroidEntryPoint
 class MapFragment : Fragment() {
@@ -49,6 +51,37 @@ class MapFragment : Fragment() {
         return binding.root
     }
 
+    fun updateMapCoordinates(coordinates: GeoPoint) {
+        val latitude = arguments?.getDouble("latitude")
+        val longitude = arguments?.getDouble("longitude")
+        mapView.controller.setCenter(coordinates)
+
+        // Create an OverlayItem
+        val overlayItem = OverlayItem("Location", "Description", coordinates)
+
+        // Create an ItemizedIconOverlay and add the OverlayItem
+        val items = ArrayList<OverlayItem>()
+        items.add(overlayItem)
+
+        val locationOverlay = ItemizedIconOverlay(
+            requireContext(),
+            items,
+            object : ItemizedIconOverlay.OnItemGestureListener<OverlayItem> {
+                override fun onItemSingleTapUp(index: Int, item: OverlayItem): Boolean {
+                    // Handle single tap on item here
+                    return true
+                }
+
+                override fun onItemLongPress(index: Int, item: OverlayItem): Boolean {
+                    // Handle long press on item here
+                    return true
+                }
+            }
+        )
+
+        // Add the ItemizedIconOverlay to the MapView
+        mapView.overlays.add(locationOverlay)
+    }
     //initializeUI()
     override fun onResume() {
         super.onResume()

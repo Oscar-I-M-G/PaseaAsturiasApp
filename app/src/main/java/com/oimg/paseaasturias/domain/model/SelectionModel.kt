@@ -25,6 +25,7 @@ data class SelectionModel(
     val ActividadNombre:String,
     val Actividades:List<String>,
     val Tarifa:String,
+    val Tarifas:List<String>,
     val Accesibilidad:String,
     val Coordenadas:String,
     val Slide: String,

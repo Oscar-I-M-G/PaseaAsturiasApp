@@ -4,10 +4,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--    Color Palette  -->
-    <color name="primary">#138392</color>
-    <color name="secondary">#E1BF2C</color>
-    <color name="primaryLight">#41ADA2</color>
-    <color name="background">#E1E6BC</color>
-    <color name="red">#D14422</color>
+    <color name="primary">#2a64f6</color>
+    <color name="primaryLight">#6181f8</color>
+    <color name="primaryDark">#0047f2</color>
+    <color name="secondary">#f6bc2a</color>
+    <color name="secondaryLight">#f8d432</color>
+    <color name="secondaryDark">#f4a422</color>
+    <color name="analogous">#2acaf6</color>
+
+    <color name="background">#FFFFFFFF</color>
+    <color name="red">#f62a64</color>
 
 </resources>

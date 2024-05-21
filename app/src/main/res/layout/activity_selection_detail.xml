@@ -18,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/hello_blank_fragment" />
+
     <LinearLayout
         android:id="@+id/llSocial"
         android:layout_width="wrap_content"
@@ -63,6 +64,7 @@
             android:src="@drawable/ic_pinterest" />
 
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvImages"
         android:layout_width="wrap_content"
@@ -72,6 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llSocial"
         tools:backgroundTint="@color/red" />
+
     <LinearLayout
         android:id="@+id/llContact"
         android:layout_width="match_parent"
@@ -99,7 +102,7 @@
                     android:id="@+id/ivEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_email"/>
+                    android:src="@drawable/ic_email" />
 
                 <TextView
                     android:id="@+id/tvEmail"
@@ -157,63 +160,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        tools:background="@color/secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llContact">
-        <ImageView
+        app:layout_constraintTop_toBottomOf="@+id/llContact"
+        tools:background="@color/secondary">
 
+        <ImageView
+            android:id="@+id/ivAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pin"/>
+            android:src="@drawable/ic_pin" />
+
         <TextView
+            android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="42 Wallaby Way, Sydney."/>
+            tools:text="42 Wallaby Way, Sydney." />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llAddress"
-        tools:text="@string/short_lorem_ipsum"/>
+        tools:text="@string/short_lorem_ipsum" />
 
     <LinearLayout
         android:id="@+id/llActividades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo"
-        tools:background="@color/red"
-        >
-        <TextView
-            android:id="@+id/tvActividades"
+        tools:background="@color/red">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Actividades"
-            android:layout_weight="2"
-            />
-        <TextView
-            android:id="@+id/tvTarifas"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvActividades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/fragment_selection_activity" />
+            <ListView
+                android:id="@+id/lvActividades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tarifas"
-            android:layout_weight="1"/>
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <TextView
+                android:id="@+id/tvTarifas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_selection_tariffs" />
+            <ListView
+                android:id="@+id/lvTarifas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/tvTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llActividades"
-        tools:text="@string/lorem_ipsum"/>
-
+        tools:text="@string/lorem_ipsum" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

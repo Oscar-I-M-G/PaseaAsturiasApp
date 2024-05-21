@@ -13,6 +13,7 @@
         <action
             android:id="@+id/action_selectionFragment_to_selectionDetailActivity"
             app:destination="@id/selectionDetailActivity" />
+
     </fragment>
     <fragment
         android:id="@+id/pursuitsFragment"
@@ -28,6 +29,8 @@
         android:id="@+id/selectionDetailActivity"
         android:name="com.oimg.paseaasturias.ui.detail.SelectionDetailActivity"
         android:label="activity_selection_detail"
-        tools:layout="@layout/activity_selection_detail" />
+        tools:layout="@layout/activity_selection_detail"/>
+
+
 
 </navigation>

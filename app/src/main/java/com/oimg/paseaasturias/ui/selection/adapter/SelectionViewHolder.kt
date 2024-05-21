@@ -28,11 +28,15 @@ class SelectionViewHolder(view: View):RecyclerView.ViewHolder(view) {
         // titulo
         binding.tvName.text = selectionInfo.Nombre
         // Ciudad
-        binding.tvTown.text = selectionInfo.Zona
+        val shortAddress =
+            "${selectionInfo.Direccion}, ${selectionInfo.Concejo}"
 
-        binding.cvPursuit.setOnClickListener {
+        binding.tvLocation.text = shortAddress
+
+        binding.ivSelection.setOnClickListener {
             moveto(selectionInfo)
         }
+
     }
     private fun moveto(selection: SelectionModel) {
             val intent = Intent(itemView.context, SelectionDetailActivity::class.java)

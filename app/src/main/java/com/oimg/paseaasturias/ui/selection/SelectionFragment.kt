@@ -68,6 +68,9 @@ class SelectionFragment : Fragment() {
         binding.rvSelection.adapter = adapter
         selectionState.data?.let { adapter.updateList(it) }
     }
+    override fun onResume() {
+        super.onResume()
+    }
 
     private fun errorState(){
         binding.pbSelection.isVisible = false

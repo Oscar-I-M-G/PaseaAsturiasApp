@@ -53,6 +53,7 @@ data class GeneralResponse(
             val imageUrls = splitString(Slide).map { "$imageBaseUrl$it" }   //map para recorrer la lista de imagenes
             val activities = splitString(ActividadNombre)
             val imagetextos = splitString(SlideTitulo)   //titulos de la imagenes
+            val tarifas = splitString(Tarifa)
         return SelectionModel(
                 Nombre = Nombre,
                 Slide = Slide,
@@ -78,6 +79,7 @@ data class GeneralResponse(
                 ActividadNombre = ActividadNombre,
                 Actividades = activities,
                 Tarifa = Tarifa,
+                Tarifas = tarifas,
                 Accesibilidad = Accesibilidad,
                 Coordenadas = Coordenadas,
                 SlideTitulo = SlideTitulo,

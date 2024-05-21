@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oimg.paseaasturias.databinding.FragmentPursuitsBinding
 import com.oimg.paseaasturias.ui.pursuits.adapter.PursuitsAdapter
@@ -47,7 +48,7 @@ class PursuitsFragment : Fragment() {
     private fun initlist() {
         adapter = PursuitsAdapter()
         binding.rvPursuits.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            GridLayoutManager(context,  2)
         binding.rvPursuits.adapter = adapter
     }
 

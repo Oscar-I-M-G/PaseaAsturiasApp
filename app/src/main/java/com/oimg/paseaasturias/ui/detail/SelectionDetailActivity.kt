@@ -4,14 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.oimg.paseaasturias.R
 import com.oimg.paseaasturias.databinding.ActivitySelectionDetailBinding
-import com.oimg.paseaasturias.databinding.FragmentSelectionBinding
 import com.oimg.paseaasturias.domain.model.DetailModel
 import com.oimg.paseaasturias.domain.model.SelectionModel
 import com.oimg.paseaasturias.ui.detail.adapter.DetailAdapter
@@ -21,11 +16,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class SelectionDetailActivity : AppCompatActivity() {
 
     //  -   -   -   -   -   Binding -   -   -   -   -   -
-    private lateinit var binding : ActivitySelectionDetailBinding
+    private lateinit var binding: ActivitySelectionDetailBinding
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
 
     //  -   -   -   -   -  Adapter  -   -   -   -   -   -
     private lateinit var adapter: DetailAdapter
+
     //  -   -   -   -   -   -   -   -   -   -   -   -   -
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,29 +39,36 @@ class SelectionDetailActivity : AppCompatActivity() {
         initializeImages()
         initializeContactInfo()
         initializeAdress()
+        initializeAdress()
+        initializeTitulo()
+        initializeActivities()
+    }
 
+    private fun initializeActivities() {
+
+    }
+
+    private fun initializeTitulo() {
+        val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
+        binding.tvTitulo.text = selection.Titulo
     }
 
     private fun initializeAdress() {
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
-        // comprobamos si la direccion no es nula o vacia
-        // si no es nula o vacia mostramos el icono de direccion y le damos su link
-        if (!selection.Direccion.isNullOrEmpty()) {
-            binding.ivAdress.visibility = View.VISIBLE
-            binding.tvAdress.text = selection.Direccion
-            binding.llAdress.setOnClickListener {
-                val intent = Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("geo:0,0?q=" + selection.Direccion)
-                )
-                startActivity(intent)
+         val address =
+                "${selection.Direccion}, ${selection.Concejo}, ${selection.Localidad}, ${selection.Zona}, ${selection.CP}"
+            binding.tvAddress.text = address
+            binding.ivAddress.setOnClickListener {
+                val coordinates = selection.Coordenadas.split(",").map { it.trim().toDouble() }
+                val geoUri = Uri.parse("geo:${coordinates[0]},${coordinates[1]}")
+                val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
+                mapIntent.setPackage("com.google.android.apps.maps")
+                startActivity(mapIntent)
             }
-        } else{
-            binding.llAdress.visibility = View.GONE
-        }
+
     }
 
-    private fun initializeContactInfo(){
+    private fun initializeContactInfo() {
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
         // comprobamos si el telefono no es nulo o vacio
         // si no es nulo o vacio mostramos el icono de telefono y le damos su link
@@ -76,7 +79,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + selection.Telefono))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.llPhone.visibility = View.GONE
 
         }
@@ -89,7 +92,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + selection.Email))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.llEmail.visibility = View.GONE
         }
         // comprobamos si la web no es nula o vacia
@@ -101,11 +104,12 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Web))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.llWebsite.visibility = View.GONE
         }
     }
-    private fun initializeSocialIcons(){
+
+    private fun initializeSocialIcons() {
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
         // comprobamos si la url de la red social no es nula o vacia
         // si no es nula o vacia mostramos el icono de la red social y le damos su link
@@ -115,7 +119,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Facebook))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.ivFacebook.visibility = View.GONE
         }
         if (!selection.Twitter.isNullOrEmpty()) {
@@ -124,7 +128,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Twitter))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.ivTwitter.visibility = View.GONE
         }
         if (!selection.Instagram.isNullOrEmpty()) {
@@ -133,7 +137,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Instagram))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.ivInstagram.visibility = View.GONE
         }
         if (!selection.Pinterest.isNullOrEmpty()) {
@@ -142,7 +146,7 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Pinterest))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.ivPinterest.visibility = View.GONE
         }
         if (!selection.Youtube.isNullOrEmpty()) {
@@ -151,10 +155,11 @@ class SelectionDetailActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Youtube))
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.ivYoutube.visibility = View.GONE
         }
     }
+
     private fun initializeImages() {
         val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
         adapter = DetailAdapter()
@@ -167,13 +172,13 @@ class SelectionDetailActivity : AppCompatActivity() {
 
         selection.Images?.let {
             for (image in it) {
-                detailModelList.add(DetailModel(image,""))
+                detailModelList.add(DetailModel(image, ""))
             }
 
         }
         selection.ImagesText?.let {
             for (imageText in it) {
-                detailModelList.add(DetailModel("",imageText))
+                detailModelList.add(DetailModel("", imageText))
             }
         }
 
