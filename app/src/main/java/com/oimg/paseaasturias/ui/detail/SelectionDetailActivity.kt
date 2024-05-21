@@ -1,11 +1,16 @@
 package com.oimg.paseaasturias.ui.detail
 
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.oimg.paseaasturias.R
 import com.oimg.paseaasturias.databinding.ActivitySelectionDetailBinding
 import com.oimg.paseaasturias.domain.model.DetailModel
 import com.oimg.paseaasturias.domain.model.SelectionModel
@@ -45,7 +50,27 @@ class SelectionDetailActivity : AppCompatActivity() {
     }
 
     private fun initializeActivities() {
-
+        val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
+        for (value in selection.Actividades) {
+            val textView = TextView(this)
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            textView.gravity= View.TEXT_ALIGNMENT_CENTER
+            textView.text = value
+            textView.textSize = 16f
+            textView.setPadding(12, 8, 8, 8)
+                        binding.llActividadesList.addView(textView)
+        }
+        for (value in selection.Tarifas) {
+            val textView = TextView(this)
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            textView.gravity= View.TEXT_ALIGNMENT_CENTER
+            textView.text = value
+            textView.textSize = 16f
+            textView.setPadding(12, 8, 8, 8)
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_euro,0,0,0)
+            textView.setCompoundDrawablePadding(10) // Set padding in pixels
+            binding.llTarifasList.addView(textView)
+        }
     }
 
     private fun initializeTitulo() {
@@ -58,7 +83,7 @@ class SelectionDetailActivity : AppCompatActivity() {
          val address =
                 "${selection.Direccion}, ${selection.Concejo}, ${selection.Localidad}, ${selection.Zona}, ${selection.CP}"
             binding.tvAddress.text = address
-            binding.ivAddress.setOnClickListener {
+            binding.tvAddress.setOnClickListener {
                 val coordinates = selection.Coordenadas.split(",").map { it.trim().toDouble() }
                 val geoUri = Uri.parse("geo:${coordinates[0]},${coordinates[1]}")
                 val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
@@ -73,39 +98,39 @@ class SelectionDetailActivity : AppCompatActivity() {
         // comprobamos si el telefono no es nulo o vacio
         // si no es nulo o vacio mostramos el icono de telefono y le damos su link
         if (!selection.Telefono.isNullOrEmpty()) {
-            binding.ivPhone.visibility = View.VISIBLE
+            binding.tvPhone.visibility = View.VISIBLE
             binding.tvPhone.text = selection.Telefono
-            binding.llPhone.setOnClickListener {
+            binding.tvPhone.setOnClickListener {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + selection.Telefono))
                 startActivity(intent)
             }
         } else {
-            binding.llPhone.visibility = View.GONE
+            binding.tvPhone.visibility = View.GONE
 
         }
         // comprobamos si el email no es nulo o vacio
         // si no es nulo o vacio mostramos el icono de email y le damos su link
         if (!selection.Email.isNullOrEmpty()) {
-            binding.ivEmail.visibility = View.VISIBLE
+            binding.tvEmail.visibility = View.VISIBLE
             binding.tvEmail.text = selection.Email
-            binding.llEmail.setOnClickListener {
+            binding.tvEmail.setOnClickListener {
                 val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + selection.Email))
                 startActivity(intent)
             }
         } else {
-            binding.llEmail.visibility = View.GONE
+            binding.tvEmail.visibility = View.GONE
         }
         // comprobamos si la web no es nula o vacia
         // si no es nula o vacia mostramos el icono de web y le damos su link
         if (!selection.Web.isNullOrEmpty()) {
-            binding.ivWebsite.visibility = View.VISIBLE
+            binding.tvWebsite.visibility = View.VISIBLE
             binding.tvWebsite.text = selection.Web
-            binding.llWebsite.setOnClickListener {
+            binding.tvWebsite.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(selection.Web))
                 startActivity(intent)
             }
         } else {
-            binding.llWebsite.visibility = View.GONE
+            binding.tvWebsite.visibility = View.GONE
         }
     }
 
