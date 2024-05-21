@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvPursuit"
+    android:backgroundTint="@color/primaryLight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelection"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_map" />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@color/secondary"
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4sp"
+            tools:text="TEST COMPANY"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:id="@+id/tvLocation"
+            android:textColor="@color/secondaryLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineSpacingExtra="2sp"
+            tools:text="TEST TOWN"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
