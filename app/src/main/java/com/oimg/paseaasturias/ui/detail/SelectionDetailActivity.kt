@@ -47,6 +47,11 @@ class SelectionDetailActivity : AppCompatActivity() {
         initializeAdress()
         initializeTitulo()
         initializeActivities()
+        initializeTexto()
+    }
+    private fun initializeTexto() {
+        val selection = intent.getSerializableExtra("SELECTION") as SelectionModel
+        binding.tvTexto.text = selection.Texto
     }
 
     private fun initializeActivities() {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PaseaAsturias</string>
+    <string name="menu_activity">Aktivitäten</string>
+    <string name="menu_selection">Tourismus</string>
+    <string name="menu_map">Karte</string>
+    <string name="activity_name_water">Wasseraktivitäten</string>
+    <string name="activity_name_mountain">Bergaktivitäten</string>
+    <string name="activity_name_adventure">Abenteueraktivitäten</string>
+    <string name="activity_name_sports">Sportaktivitäten</string>
+    <string name="activity_name_nature">Naturaktivitäten</string>
+    <string name="activity_name_misc">Verschiedene Aktivitäten</string>
+    <string name="fragment_selection_activity">Aktivitäten:</string>
+    <string name="fragment_selection_tariffs">Tarife:</string>
+    <string name="fragment_selection_info">Mehr Informationen:</string>
+</resources>

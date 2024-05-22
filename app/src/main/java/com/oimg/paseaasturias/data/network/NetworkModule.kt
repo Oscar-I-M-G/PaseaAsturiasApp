@@ -22,7 +22,6 @@ object NetworkModule {
 
     //direccion
     private val BASE_URL = "http://orion.edv.uniovi.es/~arias/json/" // puede faltar un / pero no se
-    private val BASE_URL2 = "https://www.turismoasturias.es"
     @Provides
     @Singleton //para crear una sola vez en ves de varias veces
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {

@@ -32,7 +32,7 @@ class SelectionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        selectionViewModel.getSelectionList()
+        selectionViewModel.getSelectionList()         // obtendremos lo del viewModel
         initializeUI()
     }
     //  -   -   -   -   -   Inicializamos la UI -   -   -
