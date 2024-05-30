@@ -2,6 +2,7 @@ package com.oimg.paseaasturias.data.network.response
 
 import com.google.gson.annotations.SerializedName
 import com.oimg.paseaasturias.data.Utils.splitString
+import com.oimg.paseaasturias.domain.model.MapModel
 import com.oimg.paseaasturias.domain.model.SelectionModel
 
 /**
@@ -97,6 +98,21 @@ data class GeneralResponse(
             )
         }
 
+    fun toDomainMap(): MapModel{
+        val imageBaseUrl = "https://www.turismoasturias.es"
+        val primeraImagen = splitString(Slide).firstOrNull()
+        val imagenURL = imageBaseUrl + primeraImagen
+        val CoordenadasLatLon = splitString(Coordenadas).map { it.toDouble() }
+        return MapModel(
+            Name = Nombre,
+            Direccion = Direccion,
+            Telefono = Telefono,
+            Web = Web,
+            Email = Email,
+            Picture = imagenURL,
+            CoordenadasLatLon = CoordenadasLatLon
+        )
+    }
 
 
 }

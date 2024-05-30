@@ -59,9 +59,8 @@ class PursuitsFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pursuitsViewModel.pursuit.collect {
-                    // Cambios en HOROSCOPE
                     adapter.updateList(it)
-                    Log.i("Ivan", it.toString())
+                    Log.i("PURSUITS", it.toString())
                 }
             }
         }
